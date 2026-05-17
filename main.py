@@ -1,10 +1,6 @@
 import turtle as t
 import random
 
-c = t.Turtle()
-
-t.colormode(255)
-
 def random_color():
     r = random.randint(0, 255)
     g = random.randint(0, 255)
@@ -12,27 +8,23 @@ def random_color():
 
     return r, g, b
 
+c = t.Turtle()
+t.colormode(255)
+c.hideturtle()
+
 c.speed('fastest')
-c.width(5)
 c.penup()
-c.goto(-700, -400)
+c.goto(-400, -350)
 
 
-
-for col in range(18):
-    c.color(random_color())
-    c.pendown()
-    c.begin_fill()
-    c.circle(20)
-    c.end_fill()
+for row in range(10):
+    for col in range(10):
+        c.pendown()
+        c.dot(40, random_color())
+        c.penup()
+        c.forward(80)
     c.penup()
-    c.forward(40)
-    c.forward(40)
-    c.pendown()
-
-
-
-
+    c.goto(-400, -350 + (row + 1) * 80)
 
 
 
